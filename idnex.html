@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        img {
+            width: 50%;
+        }
+    </style>
+    <title>Document</title>
+</head>
+
+<body>
+
+    <input type="file" name="file" id="file">
+    <button>add file</button>
+    <p>file text here</p>
+    <img src="#" alt="selected image here">
+
+
+    <form action="./index.php">
+        <input type="text">
+        <input type="submit" value="submit">
+    </form>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script>
+        let inp = $("input")
+        let addBtn = $("button")
+        let fileText = $("p")
+        let selectedImg = $("img")
+
+
+        // events sttarts here
+        $(addBtn).click(function () {
+            $(inp).click()
+        })
+
+        $(inp).change(function (input) {
+            if ($(input.target).val) {
+                $(fileText).html($(input.target).val())
+                let xyz = URL.createObjectURL(input.target.files[0])
+                $("img").attr("src", xyz)
+            }
+        })
+    </script>
+</body>
+
+</html>
